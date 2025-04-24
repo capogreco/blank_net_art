@@ -8,16 +8,16 @@ cnv.height = innerHeight
 const ctx = cnv.getContext (`2d`)
 
 const draw_frame = ms => {
+   const t = ms / 1000
+   console.log (`page loaded ${ t.toFixed (2)}s ago`)
+
    ctx.fillStyle = `turquoise`
    ctx.fillRect (0, 0, innerWidth, innerHeight)
-
-   const seconds = (ms / 1000)
-   console.log (seconds.toFixed (2))
 
    requestAnimationFrame (draw_frame)
 }
 
-draw_frame ()
+requestAnimationFrame (draw_frame)
 
 onresize = () => {
    cnv.width = innerWidth
